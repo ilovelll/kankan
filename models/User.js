@@ -11,16 +11,19 @@ var redis = new Redis(options);
 
 module.exports = {
   isExist: function(uid, callback){
-    redis.exists(uid, callback);
+    redis.exists('user:'+uid, callback);
   },
   register: function(uid, params, callback) {
-    redis.hmset(uid, params, callback);
+    redis.hmset('user:'+uid, params, callback);
   },
+  incrUid: function(callback){
+    redis.incr('user:', callback);
+  }
   getUser: function(uid, callback){
-    redis.hgetall(uid, callback);
+    redis.hgetall('user:'+uid, callback);
   },
   getPwd: function(uid, callback){
-    redis.hget(uid, pwd, callback)
+    redis.hget('user:'+uid, pwd, callback)
   },
   verifyPwd: function(test, origin){
     crypto.pbkdf2(test, 'imcutesalt', 4096, 258, function(err, hash){
@@ -29,7 +32,7 @@ module.exports = {
     })
   },
   update: function(uid, param, callback) {
-    redis.hset(uid, param, callback);
+    redis.hset('user:'+uid, param, callback);
   },
   signToken: function(uid) {
     return jwt.sign(uid, 'ssssskey', {
@@ -37,6 +40,6 @@ module.exports = {
     })
   },
   getUserNum: function(callback){
-    redis.zcard('index:uid', callback)
+    redis.get('user:', callback)
   }
 }
