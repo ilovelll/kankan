@@ -6,12 +6,8 @@
 var Redis = require('ioredis');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
-var redis = new Redis({
-  port: 58045,
-	host: 'ubuntu-redred.myalauda.cn',
-	password: 'redisred',
-	db: 2
-})
+var options = require('../config/db_config').User_Redis;
+var redis = new Redis(options);
 
 module.exports = {
   isExist: function(uid, callback){
@@ -39,5 +35,8 @@ module.exports = {
     return jwt.sign(uid, 'ssssskey', {
       'expiresInMinutes': 1440*5 // 设置过期时间:5天
     })
+  },
+  getUserNum: function(callback){
+    redis.zcard('index:uid', callback)
   }
 }
