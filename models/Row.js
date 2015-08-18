@@ -1,0 +1,2 @@
+/**
+ * Create by LiHongen on 2015/08/12 * Row model. */'use strict';var Redis = require('ioredis');var redis = new Redis({  port: 58045,	host: 'ubuntu-redred.myalauda.cn',	password: 'redisred',	db: 3})

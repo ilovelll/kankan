@@ -6,7 +6,6 @@
 'use strict';
 var not_null_config = require('../config/db_config').not_null;//传参对数据库非空进行校验，配置
 var _ = require('lodash');
-var jwt = require('jsonwebtoken');
 
 module.exports = function (req, res, next) {
 	var originalUrl = req.originalUrl;

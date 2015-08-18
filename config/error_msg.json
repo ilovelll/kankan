@@ -1,0 +1,6 @@
+{
+  "error_index": ["Not Found", "Unknown column","params not null"],
+  "Not Found": "请求资源不存在",
+  "Unknown column": "存在非法字段",
+  "params not null": "参数非空"
+}
