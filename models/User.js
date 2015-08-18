@@ -34,6 +34,9 @@ module.exports = {
   update: function(uid, param, callback) {
     redis.hset('user:'+uid, param, callback);
   },
+  geoadd: function(uid, longitude, latitude, callback){
+    redis.geoadd('geo:user:', [longitude, latitude, uid]);
+  }
   signToken: function(uid) {
     return jwt.sign(uid, 'ssssskey', {
       'expiresInMinutes': 1440*5 // 设置过期时间:5天
