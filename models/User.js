@@ -11,8 +11,12 @@ var redis = new Redis(options);
 
 module.exports = {
   //判断用户是否存在
-  isExist: function(uid, callback){
-    redis.exists('user:'+uid, callback);
+  isExist: function(name, callback){
+    redis.exists('user:name:'+name, callback);
+  },
+  //保存用户名至名字唯一库
+  saveName: function(uid, name, callback) {
+    redis.hset('user:name:'+name, 'uid', uid, callback);
   },
   //新增用户
   register: function(uid, params, callback) {

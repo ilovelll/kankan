@@ -9,8 +9,8 @@ var _ = require('lodash');
 
 module.exports = function (req, res, next) {
 	var originalUrl = req.originalUrl;
-	if (originalUrl.match(/common\/login/g)) {
-		if (not_null_check(req, not_null_config.login)) {
+	if (originalUrl.match(/users\/register/g)) {
+		if (not_null_check(req, not_null_config.register_post)) {
 			return next('params not null')
 		}
 	}
