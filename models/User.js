@@ -32,22 +32,21 @@ module.exports = {
   },
   //获取密码
   getPwd: function(uid, callback){
-    redis.hget('user:'+uid, pwd, callback)
+    redis.hget('user:'+uid, 'pwd', callback)
   },
   //验证密码
-  verifyPwd: function(test, origin){
-    crypto.pbkdf2(test, 'imcutesalt', 4096, 258, function(err, hash){
-      if(err) throw new Error(err);
-      return hash.toString('hex') == origin;
+  verifyPwd: function(test, origin, callback){
+    crypto.pbkdf2(test, 'imcutesalt', 1024, 128, function(err, hash){
+      callback(err , hash.toString('hex') == origin);
     })
   },
   //更新用户
   update: function(uid, param, callback) {
-    redis.hset('user:'+uid, param, callback);
+    redis.hmset('user:'+uid, param, callback);
   },
   //增加用户位置
-  geoadd: function(uid, longitude, latitude, callback){
-    redis.geoadd('geo:user:', [longitude, latitude, uid]);
+  geoAdd: function(uid, longitude, latitude, callback){
+    redis.geoadd('geo:user:', [longitude, latitude, uid], callback);
   },
   //获取用户位置
   getGeo: function(uid, callback){

@@ -1,0 +1,143 @@
+[
+  {
+    "type": "post",
+    "url": "/token",
+    "title": "获取token值",
+    "name": "GetToken",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "group": "User",
+    "description": "<p>获取校验token，用来接口请求，有效期五天</p> ",
+    "examples": [
+      {
+        "title": "接口示例：",
+        "content": "curl -d \"uid=7&pwd=ffff\" http://http://ubuntu-redred.myalauda.cn/token",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "<p>Boolean</p> ",
+            "optional": false,
+            "field": "success",
+            "description": "<p>请求成功与否</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "token",
+            "description": "<p>token值</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回接口请求信息</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "出参json示例：",
+          "content": "{\n   \"success\": true,\n   \"token\": \"eyJhbGciOiJIUzI1NiJ9.Nw.sFhj5iLCv0sJeaeAYJnJfveYrV_T0hQyxTZva-JBBHI\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apiDoc/apidoc.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/register",
+    "title": "注册",
+    "name": "Register",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "description": "<p>注册新用户</p> ",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "name",
+            "description": "<p>用户名</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "pwd",
+            "description": "<p>密码</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "geohash",
+            "description": "<p>用户地理位置信息</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "接口示例：",
+        "content": "curl -d \"name=lihongen&pass=ffff&geohash=ww0y51rcstxn\" http://http://ubuntu-redred.myalauda.cn/register",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "<p>Boolean</p> ",
+            "optional": false,
+            "field": "success",
+            "description": "<p>注册成功与否</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>Number</p> ",
+            "optional": false,
+            "field": "uid",
+            "description": "<p>返回用户注册id</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回接口请求信息</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "出参json示例：",
+          "content": "{\n   \"success\": true,\n   \"uid\": 7,\n   \"msg\": \"注册用户成功!\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apiDoc/apidoc.js",
+    "groupTitle": "User"
+  }
+]
