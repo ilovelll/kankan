@@ -1,0 +1,23 @@
+{
+  "User_Redis":{
+    "port": 58045,
+    "host": "ubuntu-redred.myalauda.cn",
+    "password": "redisred",
+    "db": 2
+  },
+  "Row_Redis":{
+    "port": 58045,
+    "host": "ubuntu-redred.myalauda.cn",
+    "password": "redisred",
+    "db": 3
+  },
+  "Comment_Redis":{
+    "port": 58045,
+    "host": "ubuntu-redred.myalauda.cn",
+    "password": "redisred",
+    "db": 4
+  },
+  "not_null":{
+    "register_post":["name", "longitude", "latitude", "pwd"]
+  }
+}
