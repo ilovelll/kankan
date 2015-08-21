@@ -1,7 +1,7 @@
 [
   {
     "type": "post",
-    "url": "/token",
+    "url": "/users/token",
     "title": "获取token值",
     "name": "GetToken",
     "permission": [
@@ -14,7 +14,7 @@
     "examples": [
       {
         "title": "接口示例：",
-        "content": "curl -d \"uid=7&pwd=ffff\" http://http://ubuntu-redred.myalauda.cn/token",
+        "content": "curl -d \"uid=7&pwd=ffff\" http://http://ubuntu-redred.myalauda.cn/users/token",
         "type": "curl"
       }
     ],
@@ -58,7 +58,7 @@
   },
   {
     "type": "post",
-    "url": "/register",
+    "url": "/users/register",
     "title": "注册",
     "name": "Register",
     "permission": [
@@ -98,7 +98,7 @@
     "examples": [
       {
         "title": "接口示例：",
-        "content": "curl -d \"name=lihongen&pass=ffff&geohash=ww0y51rcstxn\" http://http://ubuntu-redred.myalauda.cn/register",
+        "content": "curl -d \"name=lihongen&pass=ffff&geohash=ww0y51rcstxn\" http://http://ubuntu-redred.myalauda.cn/users/register",
         "type": "curl"
       }
     ],
